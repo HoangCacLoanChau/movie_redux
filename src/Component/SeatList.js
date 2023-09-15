@@ -10,7 +10,7 @@ export class SeatList extends Component {
           <th className="firstChar">{hang}</th>
           {x.danhSachGhe.map((item, index) => {
             return (
-              <td className={item.gia === 0 ? "firstChar" : ""} key={index}>
+              <td className={item.gia === 0 ? "firstChar" : "ghe"} key={index}>
                 {item.soGhe}
               </td>
             );
@@ -20,7 +20,7 @@ export class SeatList extends Component {
     });
   };
   render() {
-    return <div className="table ml-5">{this.renderSeatList()}</div>;
+    return <div className="table table-borderless ">{this.renderSeatList()}</div>;
   }
 }
 
