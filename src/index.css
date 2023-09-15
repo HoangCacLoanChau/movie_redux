@@ -134,7 +134,9 @@ body::before{
   border-spacing: 10px;
 
 }
-.table-bordered th{
+.table th{
   padding: 10px 20px;
-  
+}
+.table{
+  width: fit-content;
 }

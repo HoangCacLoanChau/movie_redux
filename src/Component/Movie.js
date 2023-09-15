@@ -16,10 +16,8 @@ export default class Movie extends Component {
             </div>
           </div>
           <div className="col-6">
-            <div className="manhinh text-center">
-              Selected Seat List
-              <SelectedList></SelectedList>
-            </div>
+            <div className="manhinh text-center text-warning">Selected Seat List</div>
+            <SelectedList></SelectedList>
           </div>
         </div>
       </div>
