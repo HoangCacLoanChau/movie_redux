@@ -11,9 +11,8 @@ export default class Movie extends Component {
           <div className="col-xl-6 col-lg-12  d-flex flex-column align-items-center  ">
             <div className="manhinh">Screen</div>
             <div className="screen mb-1"></div>
-            <div>
-              <SeatList />
-            </div>
+
+            <SeatList />
           </div>
           <div className="col-xl-6 col-lg-12 px-5">
             <div className="manhinh text-center text-warning">Selected Seat List</div>

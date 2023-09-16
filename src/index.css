@@ -16,26 +16,6 @@ code {
   font-family: 'fontGame';
 }
 
-
-.ghe{
-cursor: pointer;
-  background-color: #FF9E60;
-   font-size: 12px;
-  padding: 7px;
-  width: 100%;
- font-weight: bold;
-}
-
-.ghedaDat{
-  border:  none;
-  box-shadow: none;
-  opacity: .65;
-  background-color:  rgb(224, 53, 53);
-   font-size: 12px;
-  padding: 7px;
-  width: 100%;
- font-weight: bold;
-}
 button:not(:disabled).ghedaDat {
   cursor: no-drop;
 }
@@ -152,4 +132,36 @@ body::before{
 }
 .table td{
   padding: 5px;
+}
+
+input[type="checkbox"]:not(:checked), 
+input[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999%;
+}
+/* not checked  */
+input[type="checkbox"] + label {
+  cursor: pointer;
+  background-color: #FF9E60;
+   font-size: 12px;
+  padding: 7px;
+  width: 100%;
+ font-weight: bold;
+ border: none;
+
+}
+/* checked  */
+input[type="checkbox"]:checked + label {
+  cursor: pointer;
+  background: rgb(109, 238, 109);
+   font-size: 12px;
+  padding: 7px;
+  width: 100%;
+ font-weight: bold;
+ border: none;
+}
+
+input[type="checkbox"]:disabled +label{
+  cursor: not-allowed;
+  background: red;
 }

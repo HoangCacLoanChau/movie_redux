@@ -1,5 +1,5 @@
 import { message } from "antd";
-import { ADD_SEAT, DELETE_SEAT } from "../constant/constant";
+import { ADD_SEAT, BOOKING, DELETE_SEAT } from "../constant/constant";
 import { data } from "../data/data";
 
 const initialState = {
@@ -10,21 +10,15 @@ const initialState = {
 export let movieReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_SEAT: {
-      let cloneSeatList = [...state.seatList];
-      let seats = cloneSeatList.map((x) => {
-        return x.danhSachGhe;
-      });
-
       let newSeat = payload;
+
+      //select list
       let cloneSelected = [...state.selectedList];
-      let checkInSeatList = seats.findIndex((x) => {
-        return x.soGhe == newSeat.soGhe;
-      });
+
       let checkInSelected = cloneSelected.findIndex((x) => {
-        return x.soGhe == newSeat.soGhe;
+        return x.soGhe === newSeat.soGhe;
       });
       if (checkInSelected === -1) {
-        newSeat.daDat = true;
         cloneSelected.push(newSeat);
       } else {
         message.error("Seat is selected");
@@ -45,7 +39,16 @@ export let movieReducer = (state = initialState, { type, payload }) => {
       }
       return { ...state, selectedList: cloneSelected };
     }
-
+    case BOOKING: {
+      let cloneSelected = [...state.selectedList];
+      //current list
+      let cloneSeatList = [...state.seatList];
+      let currentSeats = cloneSeatList.map((x) => {
+        return x.danhSachGhe;
+      });
+      console.log("curr", currentSeats);
+      return { ...state };
+    }
     default:
       return state;
   }

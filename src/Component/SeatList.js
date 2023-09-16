@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { ADD_SEAT } from "../constant/constant";
+import { ADD_SEAT, DELETE_SEAT } from "../constant/constant";
 
 export class SeatList extends Component {
   renderSeatList = () => {
@@ -16,14 +16,21 @@ export class SeatList extends Component {
                 {gia === 0 ? (
                   soGhe
                 ) : (
-                  <button
-                    className={daDat === true ? "ghedaDat disabled" : "ghe btn btn-light"}
-                    onClick={() => {
-                      daDat === false && this.props.handleSelectSeat(item);
-                    }}
-                  >
-                    {soGhe}
-                  </button>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id={soGhe}
+                      value={soGhe}
+                      disabled={daDat === true && "true"}
+                      style={{ background: "red" }}
+                      onClick={() => {
+                        this.props.selectedList.includes(item) === false
+                          ? this.props.handleSelectSeat(item)
+                          : this.props.handleUnselectSeat(item);
+                      }}
+                    />
+                    <label for={soGhe}>{soGhe}</label>
+                  </div>
                 )}
               </td>
             );
@@ -37,15 +44,25 @@ export class SeatList extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  seatList: state.movie.seatList,
-});
+const mapStateToProps = (state) => {
+  return {
+    seatList: state.movie.seatList,
+    selectedList: state.movie.selectedList,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     handleSelectSeat: (seat) => {
       let action = {
         type: ADD_SEAT,
+        payload: seat,
+      };
+      dispatch(action);
+    },
+    handleUnselectSeat: (seat) => {
+      let action = {
+        type: DELETE_SEAT,
         payload: seat,
       };
       dispatch(action);
