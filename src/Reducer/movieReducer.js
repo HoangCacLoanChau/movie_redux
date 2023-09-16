@@ -10,12 +10,21 @@ const initialState = {
 export let movieReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_SEAT: {
+      let cloneSeatList = [...state.seatList];
+      let seats = cloneSeatList.map((x) => {
+        return x.danhSachGhe;
+      });
+
       let newSeat = payload;
       let cloneSelected = [...state.selectedList];
-      let checkSeat = cloneSelected.findIndex((x) => {
+      let checkInSeatList = seats.findIndex((x) => {
         return x.soGhe == newSeat.soGhe;
       });
-      if (checkSeat === -1) {
+      let checkInSelected = cloneSelected.findIndex((x) => {
+        return x.soGhe == newSeat.soGhe;
+      });
+      if (checkInSelected === -1) {
+        newSeat.daDat = true;
         cloneSelected.push(newSeat);
       } else {
         message.error("Seat is selected");

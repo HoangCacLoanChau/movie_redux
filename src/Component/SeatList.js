@@ -17,9 +17,9 @@ export class SeatList extends Component {
                   soGhe
                 ) : (
                   <button
-                    className="ghe btn btn-light"
+                    className={daDat === true ? "ghedaDat disabled" : "ghe btn btn-light"}
                     onClick={() => {
-                      this.props.handleSelectSeat(item);
+                      daDat === false && this.props.handleSelectSeat(item);
                     }}
                   >
                     {soGhe}

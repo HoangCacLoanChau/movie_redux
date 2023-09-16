@@ -19,11 +19,11 @@ export default class Movie extends Component {
             <div className="manhinh text-center text-warning">Selected Seat List</div>
             <div className="d-flex flex-column px-5">
               <div className="d-flex">
-                <div className="gheDangChon "></div>
+                <div className=" gheDuocChon"></div>
                 <span className="ml-5 manhinh">Selected Seat</span>
               </div>
               <div className="d-flex my-3">
-                <div className="gheDuocChon "></div>
+                <div className="gheDangChon "></div>
                 <span className="ml-5 manhinh">Selecting Seat</span>
               </div>
               <div className="d-flex">
