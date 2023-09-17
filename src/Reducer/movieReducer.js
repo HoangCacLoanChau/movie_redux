@@ -41,13 +41,21 @@ export let movieReducer = (state = initialState, { type, payload }) => {
     }
     case BOOKING: {
       let cloneSelected = [...state.selectedList];
+      if (cloneSelected.length == 0) {
+        message.error("please select a seat");
+      } else {
+        message.success("Booking successfully");
+      }
       //current list
       let cloneSeatList = [...state.seatList];
-      let currentSeats = cloneSeatList.map((x) => {
-        return x.danhSachGhe;
+      cloneSeatList.map((x) => {
+        return x.danhSachGhe.map((y) => {
+          cloneSelected.includes(y) == true && (y.daDat = true);
+        });
       });
-      console.log("curr", currentSeats);
-      return { ...state };
+      cloneSelected = [];
+      console.log(cloneSeatList);
+      return { ...state, seatList: cloneSeatList, selectedList: cloneSelected };
     }
     default:
       return state;

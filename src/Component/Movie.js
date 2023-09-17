@@ -11,7 +11,6 @@ export default class Movie extends Component {
           <div className="col-xl-6 col-lg-12  d-flex flex-column align-items-center  ">
             <div className="manhinh">Screen</div>
             <div className="screen mb-1"></div>
-
             <SeatList />
           </div>
           <div className="col-xl-6 col-lg-12 px-5">
@@ -29,6 +28,7 @@ export default class Movie extends Component {
                 <div className="gheChuaChon "></div>
                 <span className="ml-5 manhinh">Available Seat</span>
               </div>
+              <h4 className="font-weight-bold text-dark">***click seat again to unselect seat</h4>
             </div>
             <div>
               <SelectedList></SelectedList>

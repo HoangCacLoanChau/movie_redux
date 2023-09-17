@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BOOKING, DELETE_SEAT } from "../constant/constant";
-import Item from "antd/es/list/Item";
 export class SelectedList extends Component {
   renderSelectedList = () => {
     return this.props.selectedList.map((x, i) => {

@@ -6,6 +6,7 @@ export class SeatList extends Component {
   renderSeatList = () => {
     return this.props.seatList.map((x, i) => {
       let { hang } = x;
+      console.log("🚀 ~ SeatList ~ returnthis.props.seatList.map ~ x:", x);
       return (
         <tr key={i}>
           <th className="firstChar">{hang}</th>
