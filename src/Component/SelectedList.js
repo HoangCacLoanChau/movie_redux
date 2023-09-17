@@ -34,10 +34,10 @@ export class SelectedList extends Component {
     return (
       <div className="row mt-5">
         <div className="col-6 col-md-auto">
-          <div className="table table-bordered text-center text-warning  mx-5">
+          <div className="table table-bordered text-center text-white  mx-5">
             <tr>
-              <th>SEAT</th>
-              <th>PRICE</th>
+              <th>CHỖ NGỒI</th>
+              <th>GIÁ TIỂN</th>
             </tr>
             {this.renderSelectedList()}
             {this.renderTotalBill()}
@@ -51,7 +51,7 @@ export class SelectedList extends Component {
               this.props.handleBooking();
             }}
           >
-            Book
+            Đặt Vé
           </button>
         </div>
       </div>
