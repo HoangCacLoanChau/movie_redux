@@ -57,6 +57,7 @@ export let movieReducer = (state = initialState, { type, payload }) => {
       console.log(cloneSeatList);
       return { ...state, seatList: cloneSeatList, selectedList: cloneSelected };
     }
+
     default:
       return state;
   }

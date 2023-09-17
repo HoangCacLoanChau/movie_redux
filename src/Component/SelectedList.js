@@ -1,31 +1,50 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { BOOKING, DELETE_SEAT } from "../constant/constant";
+import { BOOKING } from "../constant/constant";
 export class SelectedList extends Component {
   renderSelectedList = () => {
     return this.props.selectedList.map((x, i) => {
       return (
         <tr key={i}>
-          <td className="text-light font-weight-bold display-5">{x.soGhe}</td>
-          <td className="text-light font-weight-bold display-5">{x.gia}</td>
+          <td className="text-light text-center">{x.soGhe}</td>
+          <td className="text-light text-center">{x.gia}</td>
         </tr>
       );
     });
   };
+  renderTotalBill = () => {
+    return (
+      this.props.selectedList.length !== 0 && (
+        <tr className="w-100">
+          <th>{this.props.selectedList.length} Chỗ</th>
+          <th>
+            {this.props.selectedList
+              .map((x) => {
+                return x.gia;
+              })
+              .reduce((x, y) => x + y, 0)}{" "}
+            VND
+          </th>
+        </tr>
+      )
+    );
+  };
+
   render() {
     return (
       <div className="row mt-5">
-        <div className="col-6">
-          <div className="table table-bordered text-warning  mx-5">
+        <div className="col-6 col-md-auto">
+          <div className="table table-bordered text-center text-warning  mx-5">
             <tr>
               <th>SEAT</th>
               <th>PRICE</th>
             </tr>
             {this.renderSelectedList()}
+            {this.renderTotalBill()}
           </div>
         </div>
 
-        <div className="col-6">
+        <div className="col-6 col-md-auto">
           <button
             className="btn btn-warning font-weight-bold"
             onClick={() => {
